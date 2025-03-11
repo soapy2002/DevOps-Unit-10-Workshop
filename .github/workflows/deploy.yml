@@ -13,7 +13,7 @@ jobs:
         AZURE_WEBHOOK: '${{ secrets.AZURE_WEBHOOK }}'
     # DECIDE WHETHER YOU WANT A BRANCH CHECK - if so remove the other "if"
     # if: github.ref == 'refs/heads/main'
-    if: github.repository != 'corndeladmin/DevOps-Unit-10-Workshop'
+    # if: github.repository != 'corndeladmin/DevOps-Unit-10-Workshop'
     steps:
       - name: test
         run: echo ${{ github.repository }}
@@ -25,5 +25,5 @@ jobs:
         run: echo $DOCKERHUB_TOKEN | docker login -u $DOCKERHUB_USERNAME --password-stdin
       - name: Push image
         run: docker push ${DOCKERHUB_USERNAME}/unit-10-order-processing-app
-      - name: Trigger deployment
-        run: curl --fail-with-body -X POST "$AZURE_WEBHOOK"
+      # - name: Trigger deployment
+      #   run: curl --fail-with-body -X POST "$AZURE_WEBHOOK"

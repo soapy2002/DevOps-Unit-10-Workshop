@@ -22,7 +22,7 @@ resource "azurerm_linux_web_app" "order_processing" {
 
   site_config {
     application_stack {
-      docker_image_name   = "corndeldevopscourse/m13-order-processing-app:latest"
+      docker_image_name   = "corndeldevopscourse/unit-10-order-processing-app:latest"
       docker_registry_url = "https://index.docker.io"
     }
     always_on = true
