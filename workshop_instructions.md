@@ -3,7 +3,7 @@
 Click on the Order Processing App Service in the Azure portal and then the URL.
 You'll see a dashboard showing one successfully processed order and a queue of orders to be processed, but no further orders are being processed.
 We need to investigate why.
-* You can find the code for Order Processing service in the `order-processing-app` folder of this repo
+* The python code for the order processing app can be found in the root of this project
 
 Back in the Azure Portal (still on the Order Processing App Service page) click on "Log Stream" and you'll see a number of errors like:
 
