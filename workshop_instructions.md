@@ -212,6 +212,7 @@ On the burger menu at the top left of the Azure portal select the Dashboard opti
 ![Dashboard Button](./images/dashboard_button.jpg)
 
 From here select "Create" and then choose "App Service Tracking", selecting your Order Processing App (you can create a separate dashboard for the Finance Processing Application if you like). Once the dashboard is ready have a look at the EPA criteria for monitoring below and discuss if everything here has now been covered:
+
 ![EPA Monitoring Criteria](./images/epa_monitoring_pass_criteria.jpg)
 
 ## Improve the queue
