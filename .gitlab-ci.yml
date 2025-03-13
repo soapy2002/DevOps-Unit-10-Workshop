@@ -17,8 +17,8 @@ deploy:
   #     - master
 
   script:
-    - docker build --tag ${DOCKERHUB_USERNAME}/m13-order-processing-app --target production .
+    - docker build --tag ${DOCKERHUB_USERNAME}/unit-10-order-processing-app --target production .
     - echo $DOCKERHUB_TOKEN | docker login -u $DOCKERHUB_USERNAME --password-stdin
-    - docker push ${DOCKERHUB_USERNAME}/m13-order-processing-app
+    - docker push ${DOCKERHUB_USERNAME}/unit-10-order-processing-app
     - apk add --update-cache curl
     - curl -dHf -X POST "$AZURE_WEBHOOK"
