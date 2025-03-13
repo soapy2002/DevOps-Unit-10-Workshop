@@ -200,10 +200,23 @@ configure_azure_monitor(enable_live_metrics = True)
 
 Once that's deployed, check out the "Live Metrics" tab (under the "Investigate" menu) in Application Insights. Again, it might take a few minutes to appear, but once it does you'll see that the traces on display are coming through within a second or two of being generated.
 
+## Creating a Dedicated Dashboard
+
+Looking at the Live Metrics page is good for checking the **present** status of the system, but if we need information from, say, the past hour, we want a dedicated dashboard for this.
+
+Conveniently Azure provides some [**Standard Metrics**](https://learn.microsoft.com/en-us/azure/azure-monitor/app/metrics-overview?tabs=standard#standard-metrics) for both App Services and App Service Plans (which you can find under Monitoring on the overview pages).
+
+It would be good to have these in one place, along with any other metrics we create later.
+
+On the burger menu at the top left of the Azure portal select the Dashboard option:
+![Dashboard Button](./images/dashboard_button.jpg)
+
+From here select "Create" and then choose "App Service Tracking", selecting your Order Processing App (you can create a separate dashboard for the Finance Processing Application if you like). Once the dashboard is ready have a look at the EPA criteria for monitoring below and discuss if everything here has now been covered:
+![EPA Monitoring Criteria](./images/epa_monitoring_pass_criteria.jpg)
+
 ## Improve the queue
 
-You'll now receive an email every 5 minutes until Jan 1st 3000.
-You probably don't want this.
+With the alerts in place you'll now receive an email every 5 minutes until Jan 1st 3000. You probably don't want this.
 
 Now we have alerts in place perhaps rather than endlessly retrying we should give up on orders that error and move on to the next one.
 
@@ -254,8 +267,7 @@ Not very useful in table form, but click "Chart".
 This then shows how many orders have been created in 10 minute 'bins'.
 Under chart formatting you can chose a better chart type for this type of data too.
 
-Then choose pin to dashboard, and create a new dashboard.
-From the Azure Portal you can select dashboard and your new dashboard from the dropdown at the top.
+Then choose pin to dashboard, and either select your previous dashboard or create a new dashboard.
 There is an "open editing pane" button on the chart that lets you edit it some more.
 
 This query only tells half the story - how much goes on to the queue not how much leaves it.
@@ -271,7 +283,7 @@ You'll need to set the alert logic to based on metric measurement and change the
 | summarize AggregatedValue= count(Kind == "new") -  count(Kind == "processed") by bin(timestamp,  5m)
 ```
 
-## Stretch: System monitoring
+## Stretch: Further System monitoring
 
 To start this stretch scenario, select "System Monitoring" from the scenario dropdown at the top of the orders dashboard.
 
