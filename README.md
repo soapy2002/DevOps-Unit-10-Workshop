@@ -1,6 +1,8 @@
 # Unit 10 Workshop
 
-This repository is for learners on Corndel's DevOps apprenticeship.
+This repository is for learners on Corndel's DevOps Engineering Apprenticeship.
+ 
+*We'll be using GitHub Actions to make updates during this workshop so please fork this repo so that you can configure secrets and push changes.*
 
 ## Pre-requisites
 
